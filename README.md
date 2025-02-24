@@ -9,7 +9,8 @@ To set up the project locally, follow these steps:
 
 1. **Clone the repository** (if applicable):
    ```
-   git clone <repository-url>
+   git clone https://github.com/retrocolours/nodejs-practice.git
+
    cd Assignment1
    ```
 
