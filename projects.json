@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "BandSite",
+    "summary": "A music band website featuring upcoming shows and public reviews.",
+    "tech": ["Node.js", "React.js", "Express"],
+    "screenshot": "/assets/images/Bandsite_clear.png"
+  },
+  {
+    "id": 2,
+    "title": "BrainFlix",
+    "summary": "A YouTube clone with video upload and comment features.",
+    "tech": ["React.js", "Node.js", "Express"],
+    "screenshot": "/assets/images/BrainFlix_clear.png"
+  },
+  {
+    "id": 3,
+    "title": "InStock",
+    "summary": "An inventory management system for tracking products in different warehouses featuring CRUD operations.",
+    "tech": ["Node.js", "React.js", "MySQL"],
+    "screenshot": "/assets/images/Instock_clear.png"
+  }
+]

@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #2e004f;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+header nav {
+  margin-top: 10px;
+}
+
+header nav a {
+  color: #e0e0e0;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  color: #b388ff;
+}
+
+main {
+  max-width: 1000px;
+  width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  flex: 1;
+}
+
+footer {
+  background-color: #2e004f;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.project-card h2 {
+  margin-bottom: 10px;
+  color: #b388ff;
+}
+
+.project-card p,
+.project-card ul {
+  margin-bottom: 10px;
+}
+
+.project-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.project-card ul li {
+  display: inline-block;
+  background: #2e004f;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  border-radius: 3px;
+  background-color: #222;
+  color: #fff;
+}
+
+form button {
+  background-color: #b388ff;
+  color: #121212;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #9c86e8;
+}
+
+a {
+  color: #b388ff;
+}
+
+a:hover {
+  color: #e0e0e0;
+}
+
+.error-page {
+  text-align: center;
+  padding: 50px;
+}
+
+.error-page h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #b388ff;
+}
+
+.error-page p {
+  font-size: 1.2rem;
+}
+
+.confirmation-page {
+  text-align: center;
+  padding: 50px;
+}
+
+.confirmation-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #b388ff;
+}
+
+.confirmation-page p {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  header,
+  footer {
+    padding: 10px;
+  }
+
+  header nav a {
+    margin: 0 5px;
+  }
+}
