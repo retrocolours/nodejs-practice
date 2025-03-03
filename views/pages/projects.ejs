@@ -1,0 +1,22 @@
+<%- include('../layout', { body: `
+<h1>My Projects</h1>
+<form action="/projects/search" method="get">
+  <input type="text" name="query" placeholder="Search projects..." required />
+  <button type="submit">Search</button>
+</form>
+<div class="projects-container">
+  ${projects.map(project => `
+  <div class="project-card">
+    <h2>${project.title}</h2>
+    <p>${project.summary}</p>
+    <ul>
+      ${project.tech.map(tech => `
+      <li>${tech}</li>
+      `).join('')}
+    </ul>
+    <img src="${project.screenshot}" alt="${project.title} screenshot" />
+    <a href="/projects/${project.id}">View Details</a>
+  </div>
+  `).join('')}
+</div>
+` }) %>

@@ -1,0 +1,6 @@
+<%- include('../layout', { body: `
+<h1>${project.title}</h1>
+<img src="${project.screenshot}" alt="${project.title} screenshot" />
+<p>${project.summary}</p>
+<p>Tech Stack: ${project.tech.join(', ')}</p>
+` }) %>
