@@ -1,9 +1,10 @@
-<%- include('../layout', { body: `
+<%- include('.././layouts/layout', { body: `
 <h1>My Projects</h1>
 <form action="/projects/search" method="get">
   <input type="text" name="query" placeholder="Search projects..." required />
   <button type="submit">Search</button>
 </form>
+
 <div class="projects-container">
   ${projects.map(project => `
   <div class="project-card">

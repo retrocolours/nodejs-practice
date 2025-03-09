@@ -1,13 +1,13 @@
-
-
 ## Project Overview
-This is a Node.js-based project that includes a server (`server.js`) and dependencies managed via `package.json`. It is handling project-related data stored in `projects.json`.
+
+This project is a refactored portfolio website built with Node.js following the Model-View-Controller (MVC) architecture. The project was transitioned from using a JSON file to a MongoDB Atlas database, using Mongoose as the ODM.
 
 ## Installation
 
 To set up the project locally, follow these steps:
 
 1. **Clone the repository** (if applicable):
+
    ```
    git clone <repository-url>
    cd Assignment1
@@ -21,6 +21,7 @@ To set up the project locally, follow these steps:
 ## Usage
 
 To start the server, run:
+
 ```
 node server.js
 ```
@@ -28,9 +29,7 @@ node server.js
 ## Dependencies
 
 The project dependencies are listed in `package.json`. You can install/update them by running:
+
 ```
 npm install
 ```
-
-
-
