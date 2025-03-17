@@ -23,9 +23,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/assets", express.static(path.join(__dirname, "public/assets")));
+// app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
+
 // Set View Engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
+
+
 
 // Routes
 const projectRoutes = require("./routes/projectRoutes");

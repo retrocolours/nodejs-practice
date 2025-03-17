@@ -1,0 +1,11 @@
+<%- include('../layouts/layout', { body: `
+<h1>Create a New Project</h1>
+<form action="/projects" method="POST">
+  <label>Title:</label> <input type="text" name="title" required />
+  <label>Summary:</label> <input type="text" name="summary" required />
+  <label>Tech Stack (comma separated):</label>
+  <input type="text" name="tech" required /> <label>Description:</label>
+  <textarea name="description" required></textarea>
+  <button type="submit">Create</button>
+</form>
+` }) %>
