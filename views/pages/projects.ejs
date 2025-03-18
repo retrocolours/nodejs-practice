@@ -1,18 +1,24 @@
 <%- include('.././layouts/layout', { body: `
 <h1>My Projects</h1>
-<a href="/projects/new">Create New Project</a>
+<form action="/projects/search" method="get">
+  <input type="text" name="query" placeholder="Search projects..." required />
+  <button type="submit">Search</button>
+</form>
+<a href="/projects/new" class="btn">Create New Project</a>
 <div class="projects-container">
   ${projects.map(project => `
   <div class="project-card">
     <h2>${project.title}</h2>
-    <p>${project.summary}</p>
+    <h3>${project.summary}</h3>
+    <p>${project.description}</p>
     <ul>
       ${project.tech.map(tech => `
       <li>${tech}</li>
       `).join('')}
     </ul>
     <img src="${project.screenshot}" alt="${project.title} screenshot" />
-    <a href="/projects/${project._id}/edit">Edit</a>
+    <a href="/projects/${project._id}" class="btn">View Details</a>
+    <a href="/projects/${project._id}/edit" class="btn">Edit</a>
     <form
       action="/projects/${project._id}/delete"
       method="POST"

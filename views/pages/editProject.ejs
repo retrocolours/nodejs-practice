@@ -1,14 +1,30 @@
 <%- include('../layouts/layout', { body: `
 <h1>Edit Project</h1>
-<form action="/projects/${project._id}/update" method="POST">
-  <label>Title:</label>
-  <input type="text" name="title" value="${project.title}" required />
-  <label>Summary:</label>
-  <input type="text" name="summary" value="${project.summary}" required />
-  <label>Tech Stack (comma separated):</label>
-  <input type="text" name="tech" value="${project.tech.join(', ')}" required />
-  <label>Description:</label>
-  <textarea name="description" required>${project.description}</textarea>
-  <button type="submit">Update</button>
+<form
+  action="/projects/<%= project._id %>/update"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label for="title">Title:</label>
+  <input type="text" name="title" value="<%= project.title %>" required />
+
+  <label for="summary">Summary:</label>
+  <input type="text" name="summary" value="<%= project.summary %>" required />
+
+  <label for="description">Description:</label>
+  <textarea name="description" required><%= project.description %></textarea>
+
+  <label for="tech">Tech Stack (comma-separated):</label>
+  <input
+    type="text"
+    name="tech"
+    value="<%= project.tech.join(', ') %>"
+    required
+  />
+
+  <label for="screenshot">Upload New Screenshot:</label>
+  <input type="file" name="screenshot" accept="image/*" />
+
+  <button type="submit">Update Project</button>
 </form>
 ` }) %>

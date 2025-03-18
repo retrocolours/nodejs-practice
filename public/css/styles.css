@@ -126,7 +126,6 @@ form button {
   border-radius: 3px;
   cursor: pointer;
   font-weight: bold;
-
 }
 
 form button:hover {
@@ -169,6 +168,23 @@ a:hover {
 
 .confirmation-page p {
   font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #6cbbf3;
+  color: #121212;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  margin: 1rem 0;
+}
+
+.btn:hover {
+  background-color: #9c86e8;
+  color: #fff;
 }
 
 @media (max-width: 768px) {

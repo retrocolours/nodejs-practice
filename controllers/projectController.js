@@ -37,16 +37,14 @@ exports.searchProjects = async (req, res) => {
   try {
     const query = req.query.query;
 
-    const projects = await mongoose.connection.db
-      .collection("Projects")
-      .find({
-        $or: [
-          { title: { $regex: query, $options: "i" } },
-          { summary: { $regex: query, $options: "i" } },
-          { description: { $regex: query, $options: "i" } },
-        ],
-      })
-      .toArray();
+    const projects = await Project.find({
+      $or: [
+        { title: { $regex: query, $options: "i" } },
+        { summary: { $regex: query, $options: "i" } },
+        { description: { $regex: query, $options: "i" } },
+        { tech: { $in: [query] } }, // Ensure `tech` is stored as an array
+      ],
+    });
 
     res.render("pages/projects", { title: "Search Results", projects });
   } catch (err) {
@@ -60,16 +58,19 @@ exports.getNewProjectForm = (req, res) => {
   res.render("pages/newProject", { title: "New Project" });
 };
 
-// POST create project
 exports.createProject = async (req, res) => {
   try {
     const { title, summary, description, tech } = req.body;
+    const screenshot = req.file
+      ? `/uploads/${req.file.filename}`
+      : "/uploads/default.png"; // Save file path
 
     const newProject = new Project({
       title,
       summary,
       description,
-      tech: tech.split(",").map((item) => item.trim()), // Convert to array
+      tech: tech.split(",").map((item) => item.trim()),
+      screenshot,
     });
 
     await newProject.save();
@@ -83,12 +84,16 @@ exports.createProject = async (req, res) => {
 // GET edit project form
 exports.getEditProjectForm = async (req, res) => {
   try {
+    console.log("Fetching project for editing:", req.params.id);
+
     const project = await Project.findById(req.params.id);
+
     if (!project) {
-      return res
-        .status(404)
-        .render("pages/error", { title: "Project Not Found" });
+      return res.status(404).send("Project not found");
     }
+
+    console.log("Project found:", project);
+
     res.render("pages/editProject", { title: "Edit Project", project });
   } catch (err) {
     console.error("Error fetching project:", err);
@@ -96,16 +101,19 @@ exports.getEditProjectForm = async (req, res) => {
   }
 };
 
-// POST update project
 exports.updateProject = async (req, res) => {
   try {
     const { title, summary, description, tech } = req.body;
-
     const project = await Project.findById(req.params.id);
+
     if (!project) {
       return res
         .status(404)
         .render("pages/error", { title: "Project Not Found" });
+    }
+
+    if (req.file) {
+      project.screenshot = `/uploads/${req.file.filename}`; // Update image if a new one is uploaded
     }
 
     project.title = title;
